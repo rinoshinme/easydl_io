@@ -7,6 +7,8 @@
     <ClCompile Include="curl_manager_test.cpp" />
     <ClCompile Include="dataset_manager.cpp" />
     <ClCompile Include="dataset_message.cpp" />
+    <ClCompile Include="utility.cpp" />
+    <ClCompile Include="base64.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dataset_manager.h" />
@@ -15,5 +17,7 @@
     <ClInclude Include="curl_manager_test.h" />
     <ClInclude Include="dataset_message.h" />
     <ClInclude Include="easydl_test.h" />
+    <ClInclude Include="utility.h" />
+    <ClInclude Include="base64.h" />
   </ItemGroup>
 </Project>

@@ -36,7 +36,7 @@ public:
 		
 		std::string url = data.url;
 		url = url + "?access_token=" + access_token;
-		std::cout << url << std::endl;
+		// std::cout << url << std::endl;
 		pCurl->setUrlPath(url);
 
 		int nMethod = data.method;
@@ -59,7 +59,7 @@ public:
 		}
 		else
 		{
-			ret.show();
+			// ret.show();
 		}
 		return code;
 	}

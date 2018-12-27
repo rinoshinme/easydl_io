@@ -9,7 +9,9 @@
 #include <json/json.h>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 #include "curl_manager.h" // for HttpMethod
+#include "utility.h"
 
 namespace msg
 {
@@ -332,7 +334,7 @@ namespace msg
 		std::vector<int> width;
 		std::vector<int> height;
 
-		DatasetAdd(const std::string& access_token, int dataset_id, bool append_label)
+		DatasetAdd(const std::string& access_token, const std::string& type, int dataset_id, bool append_label)
 			:MessageBase(access_token)
 		{
 			method = METHOD_POST;
@@ -342,6 +344,55 @@ namespace msg
 			this->dataset_id = dataset_id;
 			this->append_label = append_label;
 			// other fields should be further modified or added.
+		}
+
+		/*
+		 * n
+		 * label_name xmin ymin xmax ymax
+		 */
+		inline void loadFromTextFile(const std::string& text_file)
+		{
+			std::ifstream stream;
+			stream.open(text_file);
+			if (!stream.is_open())
+				return;
+
+			std::string line;
+			// read first line and get obj num
+			std::getline(stream, line);
+			line = stringTrim(line);
+			int num_obj = atoi(line.c_str());
+			label_name.clear();
+			left.clear();
+			top.clear();
+			width.clear();
+			height.clear();
+			if (type == "OBJECT_DETECTION")
+			{
+				for (int i = 0; i < num_obj; ++i)
+				{
+					std::getline(stream, line);
+					std::vector<std::string> fields = stringSplit(stringTrim(line));
+					label_name.push_back(fields[0]);
+					int x1 = atoi(fields[1].c_str());
+					int y1 = atoi(fields[2].c_str());
+					int x2 = atoi(fields[3].c_str());
+					int y2 = atoi(fields[4].c_str());
+					left.push_back(x1);
+					top.push_back(y1);
+					width.push_back(x2 - x1);
+					height.push_back(y2 - y1);
+				}
+			}
+			stream.close();
+		}
+
+		inline void loadContentFromFile(const std::string& image_file, char sep = '\\')
+		{
+			std::vector<std::string> parts = stringSplit(image_file, sep);
+			entity_name = parts[parts.size() - 1];
+			if (type == "OBJECT_DETECTION" || type == "IMAGE_CLASSIFICATION")
+				bool ret = readBase64Content(image_file, entity_content);
 		}
 
 		std::string toJsonString() const

@@ -33,3 +33,6 @@
 
 # Visual Studio Output
 /x64
+
+# python compiled file
+*.pyc
