@@ -1,0 +1,28 @@
+﻿Build started 2018/12/26 14:25:12.
+     1>Project "F:\调研 - EasyDL\EasyDLTest\easydl_io\easydl_io.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Release\easydl_io.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"F:\调研 - EasyDL\EasyDLTest\3rdparty\libcurl\include\\" /I"F:\调研 - EasyDL\EasyDLTest\3rdparty\jsoncpp\include\\" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt dataset_manager.cpp main.cpp
+         dataset_manager.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\调研 - EasyDL\EasyDLTest\x64\Release\easydl_io.exe" /NOLOGO /LIBPATH:"F:\调研 - EasyDL\EasyDLTest\3rdparty\libcurl\lib\\" /LIBPATH:"F:\调研 - EasyDL\EasyDLTest\3rdparty\jsoncpp\lib\Release\\" lib_json.lib libcurl.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\调研 - EasyDL\EasyDLTest\x64\Release\easydl_io.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\调研 - EasyDL\EasyDLTest\x64\Release\easydl_io.lib" /MACHINE:X64 x64\Release\curl_manager.obj
+         x64\Release\curl_manager_test.obj
+         x64\Release\dataset_manager.obj
+         x64\Release\main.obj
+         x64\Release\mutex_lock.obj
+         Generating code
+         Finished generating code
+     1>lib_json.lib(json_reader.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lib_json.lib(json_reader.obj)' or at 'F:\调研 - EasyDL\EasyDLTest\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>lib_json.lib(json_value.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lib_json.lib(json_value.obj)' or at 'F:\调研 - EasyDL\EasyDLTest\x64\Release\vc120.pdb'; linking object as if no debug info
+     1>lib_json.lib(json_writer.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'lib_json.lib(json_writer.obj)' or at 'F:\调研 - EasyDL\EasyDLTest\x64\Release\vc120.pdb'; linking object as if no debug info
+         easydl_io.vcxproj -> F:\调研 - EasyDL\EasyDLTest\x64\Release\easydl_io.exe
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\easydl_io.tlog\unsuccessfulbuild".
+         Touching "x64\Release\easydl_io.tlog\easydl_io.lastbuildstate".
+     1>Done Building Project "F:\调研 - EasyDL\EasyDLTest\easydl_io\easydl_io.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.92
